@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feli & Réka - Wedding Invitation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            color: #091405;
+            background: linear-gradient(135deg, #F6F9F5 0%, #A5C8D4 25%, #BBC0B9 50%, #A5C8D4 75%, #F6F9F5 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 20s ease infinite;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Decorative floating elements */
+        body::before,
+        body::after {
+            content: '';
+            position: fixed;
+            border-radius: 50%;
+            opacity: 0.2;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        body::before {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #A12767, #E0FD2C);
+            top: -100px;
+            left: -100px;
+            animation: float 25s infinite ease-in-out;
+        }
+
+        body::after {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #035772, #A5C8D4);
+            bottom: -50px;
+            right: -50px;
+            animation: float 30s infinite ease-in-out reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(50px, -50px) rotate(120deg); }
+            66% { transform: translate(-30px, 30px) rotate(240deg); }
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #A12767 0%, #035772 100%);
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 15px rgba(161, 39, 103, 0.4);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: nowrap;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #F6F9F5;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            white-space: nowrap;
+        }
+
+        nav a:hover {
+            color: #E0FD2C;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(165, 200, 212, 0.5), rgba(246, 249, 245, 0.7));
+            border-radius: 30px;
+            margin: 2rem;
+            box-shadow: 0 10px 40px rgba(161, 39, 103, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-family: 'Brush Script MT', cursive;
+            background: linear-gradient(135deg, #A12767, #035772, #E0FD2C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            animation: shimmer 3s infinite;
+            filter: drop-shadow(2px 2px 4px rgba(161, 39, 103, 0.3));
+        }
+
+        @keyframes shimmer {
+            0%, 100% { filter: brightness(1) drop-shadow(2px 2px 4px rgba(161, 39, 103, 0.3)); }
+            50% { filter: brightness(1.3) drop-shadow(2px 2px 8px rgba(161, 39, 103, 0.5)); }
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #035772;
+            margin: 1rem 0;
+            font-weight: 500;
+        }
+
+        .heart {
+            color: #A12767;
+            font-size: 1.5rem;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        /* Main Content Sections */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #A12767, #035772);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Brush Script MT', cursive;
+            filter: drop-shadow(1px 1px 2px rgba(161, 39, 103, 0.2));
+        }
+
+        /* Wedding Details */
+        .date-box {
+            text-align: center;
+            background: linear-gradient(135deg, #F6F9F5, #A5C8D4);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(161, 39, 103, 0.3);
+            max-width: 600px;
+            margin: 2rem auto;
+            border: 3px solid #E0FD2C;
+        }
+
+        .date-box h3 {
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, #A12767, #035772);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .date-box p {
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+            color: #035772;
+        }
+
+        .date-box strong {
+            color: #A12767;
+        }
+
+        /* Big Day Timeline */
+        .timeline {
+            background: linear-gradient(135deg, rgba(165, 200, 212, 0.4), rgba(246, 249, 245, 0.6));
+            border-radius: 30px;
+            padding: 4rem 2rem !important;
+            box-shadow: 0 10px 40px rgba(161, 39, 103, 0.2);
+        }
+
+        .timeline-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .timeline-details {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #444D41;
+        }
+
+        .timeline-details h3 {
+            background: linear-gradient(135deg, #A12767, #035772);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .timeline-details strong {
+            color: #A12767;
+        }
+
+        /* Photo Gallery */
+        .gallery {
+            background: linear-gradient(135deg, rgba(187, 192, 185, 0.3), rgba(165, 200, 212, 0.4));
+            border-radius: 30px;
+            padding: 4rem 2rem !important;
+            box-shadow: 0 10px 40px rgba(161, 39, 103, 0.2);
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(161, 39, 103, 0.3);
+            aspect-ratio: 4/3;
+            background: linear-gradient(135deg, #A5C8D4, #BBC0B9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #035772;
+            font-style: italic;
+            border: 3px solid #E0FD2C;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .photo-item:hover {
+            transform: translateY(-5px) rotate(1deg);
+            box-shadow: 0 15px 40px rgba(161, 39, 103, 0.4);
+            border-color: #A12767;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Contact Form */
+        .contact {
+            background: linear-gradient(135deg, rgba(165, 200, 212, 0.3), rgba(246, 249, 245, 0.5));
+            border-radius: 30px;
+            padding: 4rem 2rem !important;
+            box-shadow: 0 10px 40px rgba(161, 39, 103, 0.2);
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #035772;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #A5C8D4;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            background: rgba(246, 249, 245, 0.9);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #A12767;
+            box-shadow: 0 0 10px rgba(161, 39, 103, 0.3);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #A12767, #035772);
+            color: #F6F9F5;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(161, 39, 103, 0.4);
+        }
+
+        .btn-submit:hover {
+            background: linear-gradient(135deg, #035772, #A12767);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(161, 39, 103, 0.5);
+        }
+
+        .rsvp-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #E0FD2C, #A12767);
+            color: #091405;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            margin: 2rem 0;
+            font-size: 1.3rem;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 8px 20px rgba(224, 253, 44, 0.4);
+        }
+
+        .rsvp-button:hover {
+            background: linear-gradient(135deg, #A12767, #E0FD2C);
+            color: #F6F9F5;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 30px rgba(161, 39, 103, 0.5);
+        }
+
+        .contact-info {
+            margin-top: 3rem;
+            text-align: center;
+            color: #035772;
+        }
+
+        .contact-info h4 {
+            background: linear-gradient(135deg, #A12767, #035772);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #035772, #A12767);
+            color: #F6F9F5;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            box-shadow: 0 -5px 20px rgba(161, 39, 103, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .timeline-content {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#big-day">Big Day Agenda</a></li>
+            <li><a href="#us">Us</a></li>
+            <li><a href="#shuttle">Stay & Shuttle</a></li>
+            <li><a href="#attire">Attire</a></li>
+            <li><a href="#presents">Presents</a></li>
+            <li><a href="#trips">Trips & Tips</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Feli & Réka</h1>
+        
+        <div style="max-width: 400px; margin: 2rem auto;">
+            <img src="proposal.jpg" alt="Feli & Réka Proposal" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 10px 30px rgba(161, 39, 103, 0.3);">
+        </div>
+
+        <p>Thank you for being part of our story <span class="heart">💕</span></p>
+        <p>We hope you'll join us for the day we'll cherish forever.</p>
+
+        <div class="date-box" style="margin-top: 3rem;">
+            <h3>September 25, 2026</h3>
+            <p><strong>Rókusfalvy Birtok · Etyek, Hungary</strong></p>
+            <br>
+            <p>Guests are welcomed from: <strong>15:30</strong></p>
+            <p>Ceremony begins promptly at: <strong>16:30</strong></p>
+            <br>
+            <p>Kindly RSVP by <strong>April 30, 2026</strong></p>
+        </div>
+    </section>
+
+    <!-- Big Day Timeline -->
+    <section id="big-day" class="timeline">
+        <h2>Our Big Day</h2>
+        
+        <div class="timeline-content">
+            <div>
+                <img src="winery.jpg" alt="Winery" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 10px 30px rgba(161, 39, 103, 0.3); transform: rotate(-3deg);">
+            </div>
+            
+            <div class="timeline-details">
+                <p>Arrive early, stay late, and enjoy every moment. Here's a loose timeline of the day. Just make sure to try our favorite pisco sour! 🍸</p>
+                
+                <h3>September 25, 2026 · From 15:30</h3>
+                <p><strong>Rókusfalvy Birtok, Etyek, Hungary</strong><br>
+                Rókusfalvy Birtok, Rókusfalvy út 1, 2091 Etyek</p>
+                
+                <p>Parking is possible for approx. 100 cars, so feel free to come by car!</p>
+
+                <h3>15:30 – 16:30 — Arrival (Bar Is Open!) 🥂</h3>
+                <p>Early arrivals are rewarded with drinks, good company, and front-row seats — let's make the most of every moment together that day.</p>
+
+                <h3>16:30 — Ceremony 💍</h3>
+                <p>This is where we get a little emotional — love, nerves, and the welcome drinks all contributing.</p>
+
+                <h3>17:00 – 19:00 — Cocktail Hour (or Two) 🥂🥂</h3>
+                <p>Back to business.. back to drinks, cheers, light bites, and plenty of mingling.</p>
+
+                <h3>19:00(ish) — Dinner 🍽️🥂</h3>
+                <p>Take your seats — we'll start with a short welcome toast, then you're free to wander to the buffet.</p>
+
+                <h3>After dinner (20:30ish) — Opening of the dance floor 🎶🥂🥂🥂</h3>
+                <p>Live band takes the stage — let the party begin.</p>
+
+                <h3>23:00 — DJ Set & Cake Cutting 🎧🍰</h3>
+                <p>Our DJ switches on the Latin vibes as we cut the wedding cake.</p>
+
+                <p style="text-align: center; font-size: 1.2rem; margin: 1rem 0;">🥂🥂🥂🥂🥂🥂🥂🥂</p>
+
+                <h3>00:00–01:00 — Late-Night Snack 🍔🌙🥂</h3>
+                <p>A little fuel to keep the dancing going.</p>
+
+                <p style="text-align: center; font-size: 1.2rem; margin: 1rem 0;">🥂🥂🥂🥂🥂🥂🥂🥂</p>
+
+                <p style="text-align: center; font-size: 1.5rem; margin-top: 2rem;"><strong>UNTIL DAWN!</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section id="us" class="gallery">
+        <h2>Us</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; font-size: 1.1rem; color: #035772;">
+            It all started with an unexpected match, and the rest is history. Some moments are beyond words — so here are a few pictures instead.
+        </p>
+        <p style="text-align: center; color: #999; font-style: italic; margin-bottom: 2rem;">
+            Click the photos to see the story behind each moment.
+        </p>
+
+        <style>
+            .flip-card {
+                perspective: 1000px;
+                cursor: pointer;
+            }
+            .flip-card-inner {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                transition: transform 0.6s;
+                transform-style: preserve-3d;
+            }
+            .flip-card.flipped .flip-card-inner {
+                transform: rotateY(180deg);
+            }
+            .flip-card-front, .flip-card-back {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                backface-visibility: hidden;
+                border-radius: 20px;
+                overflow: hidden;
+            }
+            .flip-card-back {
+                background: linear-gradient(135deg, #A12767, #035772);
+                transform: rotateY(180deg);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 2rem;
+                text-align: center;
+            }
+            .flip-card-back p {
+                color: #F6F9F5;
+                font-size: 1.1rem;
+                line-height: 1.8;
+                font-style: italic;
+            }
+        </style>
+
+        <div style="overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; padding: 1rem 0;">
+            <div style="display: flex; gap: 1.5rem; padding: 0 2rem;">
+                <div class="flip-card" style="flex: 0 0 350px; height: 450px; box-shadow: 0 8px 25px rgba(161, 39, 103, 0.3); border: 3px solid #E0FD2C; border-radius: 20px;" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="gallery_IMG_4605.jpg" alt="Photo 1" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="flip-card-back">
+                            <p>Surrounded by people and places that make our lives brighter, bolder, and a little more colorful every day.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card" style="flex: 0 0 350px; height: 450px; box-shadow: 0 8px 25px rgba(161, 39, 103, 0.3); border: 3px solid #E0FD2C; border-radius: 20px;" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="gallery_IMG_4335.jpg" alt="Photo 2" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="flip-card-back">
+                            <p>One hour, one 5 kg tile, and one very important kitchen decision.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card" style="flex: 0 0 350px; height: 450px; box-shadow: 0 8px 25px rgba(161, 39, 103, 0.3); border: 3px solid #E0FD2C; border-radius: 20px;" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="gallery_IMG_2226.jpg" alt="Photo 3" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="flip-card-back">
+                            <p>The legendary camel ride game at Schueberfouer where after a full season of training and gaming we won a blender.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card" style="flex: 0 0 350px; height: 450px; box-shadow: 0 8px 25px rgba(161, 39, 103, 0.3); border: 3px solid #E0FD2C; border-radius: 20px;" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="gallery_IMG_3440.jpg" alt="Photo 4" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="flip-card-back">
+                            <p>Creating our own little world, one moment at a time.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card" style="flex: 0 0 350px; height: 450px; box-shadow: 0 8px 25px rgba(161, 39, 103, 0.3); border: 3px solid #E0FD2C; border-radius: 20px;" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="gallery_IMG_3758.jpg" alt="Photo 5" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="flip-card-back">
+                            <p>Nothing cheesy comes to mind. A monkey almost split us up.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card" style="flex: 0 0 350px; height: 450px; box-shadow: 0 8px 25px rgba(161, 39, 103, 0.3); border: 3px solid #E0FD2C; border-radius: 20px;" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="gallery_IMG_8402.jpg" alt="Photo 6" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="flip-card-back">
+                            <p>Winter trips we love.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card" style="flex: 0 0 350px; height: 450px; box-shadow: 0 8px 25px rgba(161, 39, 103, 0.3); border: 3px solid #E0FD2C; border-radius: 20px;" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="gallery_IMG_9548.jpg" alt="Photo 7" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="flip-card-back">
+                            <p>Amazonian king and queen. Delusions included.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card" style="flex: 0 0 350px; height: 450px; box-shadow: 0 8px 25px rgba(161, 39, 103, 0.3); border: 3px solid #E0FD2C; border-radius: 20px;" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="gallery_IMG_2298.jpg" alt="Photo 8" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="flip-card-back">
+                            <p>What to say... better to let AI comment: "From unexpected beginnings to forever moments."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card" style="flex: 0 0 350px; height: 450px; box-shadow: 0 8px 25px rgba(161, 39, 103, 0.3); border: 3px solid #E0FD2C; border-radius: 20px;" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="gallery_IMG_4054.jpg" alt="Photo 9" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="flip-card-back">
+                            <p>Our "highest peak" together.. Mt Batur, Bali. :)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card" style="flex: 0 0 350px; height: 450px; box-shadow: 0 8px 25px rgba(161, 39, 103, 0.3); border: 3px solid #E0FD2C; border-radius: 20px;" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="gallery_3553c4d4.jpg" alt="Photo 10" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="flip-card-back">
+                            <p>Celebrating life's sweetest moments together at the magic bday parties.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card" style="flex: 0 0 350px; height: 450px; box-shadow: 0 8px 25px rgba(161, 39, 103, 0.3); border: 3px solid #E0FD2C; border-radius: 20px;" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="gallery_IMG_6631.jpg" alt="Photo 11" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="flip-card-back">
+                            <p>Food. Food. Food. Living with a foodie. 🍽️🤍</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card" style="flex: 0 0 350px; height: 450px; box-shadow: 0 8px 25px rgba(161, 39, 103, 0.3); border: 3px solid #E0FD2C; border-radius: 20px;" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="gallery_IMG_0448.jpg" alt="Photo 12" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="flip-card-back">
+                            <p>We love walking, talking, and exploring together. 🤍🌿</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card" style="flex: 0 0 350px; height: 450px; box-shadow: 0 8px 25px rgba(161, 39, 103, 0.3); border: 3px solid #E0FD2C; border-radius: 20px;" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="gallery_IMG_9710.jpg" alt="Photo 13" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="flip-card-back">
+                            <p>🎶 Ecuadorrrr 🎶</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card" style="flex: 0 0 350px; height: 450px; box-shadow: 0 8px 25px rgba(161, 39, 103, 0.3); border: 3px solid #E0FD2C; border-radius: 20px;" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="gallery_IMG_1573.jpg" alt="Photo 14" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="flip-card-back">
+                            <p>We found in each other our person for everything.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card" style="flex: 0 0 350px; height: 450px; box-shadow: 0 8px 25px rgba(161, 39, 103, 0.3); border: 3px solid #E0FD2C; border-radius: 20px;" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="gallery_IMG_0442.jpg" alt="Photo 15" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="flip-card-back">
+                            <p>🎶 In IBIZA with a man in finance, with a trust fund, 6'5, with blue eyes..  🎶  (green, even better)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card" style="flex: 0 0 350px; height: 450px; box-shadow: 0 8px 25px rgba(161, 39, 103, 0.3); border: 3px solid #E0FD2C; border-radius: 20px;" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="gallery_IMG_1150.jpg" alt="Photo 16" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="flip-card-back">
+                            <p>No snow? No problem. We just can't resist a good slide. 🏂✨</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card" style="flex: 0 0 350px; height: 450px; box-shadow: 0 8px 25px rgba(161, 39, 103, 0.3); border: 3px solid #E0FD2C; border-radius: 20px;" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="gallery_IMG_3209.jpg" alt="Photo 17" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="flip-card-back">
+                            <p>We came for Machu Picchu. We stayed for the ceviche. We lost track of time after the Pisco Sours. 🍸🌄✨</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card" style="flex: 0 0 350px; height: 450px; box-shadow: 0 8px 25px rgba(161, 39, 103, 0.3); border: 3px solid #E0FD2C; border-radius: 20px;" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="gallery_IMG_4259.jpg" alt="Photo 18" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="flip-card-back">
+                            <p>It wasn't Machu Picchu. It was Trier. It wasn't Pisco. It was tractor wine. Same chaos. Different scenery. 🍷🚜✨</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card" style="flex: 0 0 350px; height: 450px; box-shadow: 0 8px 25px rgba(161, 39, 103, 0.3); border: 3px solid #E0FD2C; border-radius: 20px;" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="gallery_IMG_5131.jpg" alt="Photo 19" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="flip-card-back">
+                            <p>I found myself alive, in the palm of your hand 🤍</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shuttle Section -->
+    <section id="shuttle" style="background: linear-gradient(135deg, rgba(3,87,114,0.12), rgba(165,200,212,0.2)); border-radius: 30px; box-shadow: 0 10px 40px rgba(161,39,103,0.2); max-width: 1200px; margin: 2rem auto;">
+        <h2>Stay & Shuttle</h2>
+        <div style="max-width: 750px; margin: 0 auto;">
+            <div style="background: linear-gradient(135deg, #F6F9F5, #A5C8D4); border: 3px solid #E0FD2C; border-radius: 20px; padding: 3rem 2.5rem; box-shadow: 0 10px 30px rgba(161,39,103,0.2);">
+
+                <!-- Location Info -->
+                <p style="font-size: 1.3rem; color: #035772; line-height: 2; margin-bottom: 1.5rem;">
+                    The venue is located approximately 30–40 minutes from Budapest by car, or about 1–1.5 hours by public transport from downtown Budapest with just one change, dropping you off directly in front of the venue.
+                </p>
+                <p style="font-size: 1.3rem; color: #035772; line-height: 2; margin-bottom: 1.5rem;">
+                    To make things easier for everyone, we are planning to organize shuttle buses in both directions. Please find the details below.
+                </p>
+
+                <!-- Divider -->
+                <hr style="border: none; border-top: 2px solid #E0FD2C; margin: 2rem 0;">
+
+                <!-- Accommodation -->
+                <p style="font-size: 1.4rem; color: #A12767; font-weight: bold; line-height: 2;">
+                    🏨 Accommodation
+                </p>
+                <p style="font-size: 1.3rem; color: #035772; line-height: 2; margin-top: 0.8rem;">
+                    Please find here a nearby accommodation option in Etyek for those who would like to stay close to the venue (approximately a 15-minute walk). Please find the link below:
+                </p>
+                <ul style="list-style: none; margin: 1.2rem 0; padding: 0;">
+                    <li style="font-size: 1.2rem; color: #A12767; margin: 0.6rem 0;">🏨 <a href="https://www.booking.com/hotel/hu/ra3kusfalvy-fogda3.en-gb.html?aid=397645&label=bin859jc-10CAEoggI46AdIM1gDaIkBiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuALrwK7MBsACAdICJDgyZDYxMDFmLTQ5NzYtNGZkNS04MzQ4LWU5YjUzYzlmMmE0M9gCAeACAQ&sid=c673f5cc71867d05bfee2ba9a47b3f51&all_sr_blocks=76009101_393032548_2_2_0&checkin=2026-09-24&checkout=2026-09-25&dest_id=-852980&dest_type=city&dist=0&group_adults=2&hapos=1&highlighted_blocks=76009101_393032548_2_2_0&hpos=1&matching_block_id=76009101_393032548_2_2_0&no_rooms=1&req_adults=2&room1=A%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=76009101_393032548_2_2_0__9200&srepoch=1770758300&srpvid=7f1895c7be9302d9&type=total&ucfs=1&" target="_blank" style="color: #035772; font-weight: bold; text-decoration: underline;">Rókusfalvy Borhotel and Fogadó</a></li>
+                </ul>
+                <p style="font-size: 1.3rem; color: #035772; line-height: 2; margin-top: 1.2rem;">
+                    When you RSVP, please let us know whether you plan to stay in Etyek or return to Budapest after the wedding — this will help us plan transport accordingly. Thank you! 🤍
+                </p>
+
+                <!-- Divider -->
+                <hr style="border: none; border-top: 2px solid #E0FD2C; margin: 2rem 0;">
+
+                <!-- Afternoon Shuttle -->
+                <p style="font-size: 1.4rem; color: #A12767; font-weight: bold; line-height: 2;">
+                    🚌 Afternoon shuttle (Budapest → Etyek)
+                </p>
+                <p style="font-size: 1.3rem; color: #035772; line-height: 2; margin-top: 0.8rem;">
+                    We are planning a bus from Budapest to Etyek to arrive around 15:30, so you can be there from the very beginning of the celebration. Details will be shared closer to the date.
+                </p>
+
+                <!-- Divider -->
+                <hr style="border: none; border-top: 2px solid #E0FD2C; margin: 2rem 0;">
+
+                <!-- Evening Shuttle -->
+                <p style="font-size: 1.4rem; color: #A12767; font-weight: bold; line-height: 2;">
+                    🚌 Evening shuttle (Etyek → Budapest)
+                </p>
+                <p style="font-size: 1.3rem; color: #035772; line-height: 2; margin-top: 0.8rem;">
+                    We are currently planning shuttle buses from Etyek to Budapest between 00:00 and 03:00, departing approximately every hour. Once we have a clearer idea of guest numbers, we will tailor this service specifically to you.
+                </p>
+
+                <!-- Divider -->
+                <hr style="border: none; border-top: 2px solid #E0FD2C; margin: 2rem 0;">
+
+                <!-- Public Transport -->
+                <p style="font-size: 1.4rem; color: #A12767; font-weight: bold; line-height: 2;">
+                    🚌 Public Transport
+                </p>
+                <p style="font-size: 1.3rem; color: #035772; line-height: 2; margin-top: 0.8rem;">
+                    Alternatively, you may also reach the venue by taxi or public transport if you prefer not to use the shuttle service.
+                </p>
+                <p style="font-size: 1.3rem; color: #035772; line-height: 2; margin-top: 0.8rem;">
+                    The 760 bus runs hourly between Kelenföld vasútállomás and Rókusfalvy Birtok, Etyek, with a travel time of approximately 50 minutes.
+                </p>
+                <p style="font-size: 1.3rem; color: #035772; line-height: 2; margin-top: 0.8rem;">
+                    From downtown Budapest to Kelenföld, we recommend taking Metro Line 4 (M4), though other routes are also possible depending on your location.
+                </p>
+                <p style="font-size: 1.3rem; color: #035772; line-height: 2; margin-top: 1.2rem; font-weight: bold;">
+                    Approximate departures:
+                </p>
+                <ul style="list-style: none; margin: 0.8rem 0; padding: 0 1rem;">
+                    <li style="font-size: 1.2rem; color: #035772; margin: 0.5rem 0;">• Budapest → Rókusfalvy Birtok: every hour at :40 (first bus: 04:40 — last bus: 23:40)</li>
+                    <li style="font-size: 1.2rem; color: #035772; margin: 0.5rem 0;">• Rókusfalvy Birtok → Budapest: every hour at :47 (first bus: 03:47 — last bus: 21:47)</li>
+                </ul>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Attire Section -->
+    <section id="attire" style="background: linear-gradient(135deg, rgba(3,87,114,0.12), rgba(165,200,212,0.2)); border-radius: 30px; box-shadow: 0 10px 40px rgba(161,39,103,0.2); max-width: 1200px; margin: 2rem auto;">
+        <h2>Attire</h2>
+        <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+            <div style="background: linear-gradient(135deg, #F6F9F5, #A5C8D4); border: 3px solid #E0FD2C; border-radius: 20px; padding: 3rem 2.5rem; box-shadow: 0 10px 30px rgba(161,39,103,0.2);">
+                <p style="font-size: 1.4rem; color: #A12767; font-weight: bold; line-height: 2;">
+                    Dress Code: Business Casual 👗👔
+                </p>
+                <p style="font-size: 1.3rem; color: #035772; line-height: 2; margin-top: 1.2rem;">
+                    We'd love for you to feel comfortable — but let's save the sweatpants for Netflix night. 🍿🛋️
+                </p>
+                <p style="font-size: 1.3rem; color: #035772; line-height: 2; margin-top: 1.2rem;">
+                    For the ladies, we'd love to see bright, joyful colors — let's make the dance floor look like a confetti explosion. ✨💃
+                </p>
+                <p style="font-size: 1.3rem; color: #035772; line-height: 2; margin-top: 1.2rem;">
+                    For the gentlemen: Business casual works perfectly — we trust you know what to do. 😉🕺
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Presents Section -->
+    <section id="presents" style="background: linear-gradient(135deg, rgba(161,39,103,0.12), rgba(3,87,114,0.12)); border-radius: 30px; box-shadow: 0 10px 40px rgba(161,39,103,0.2); max-width: 1200px; margin: 2rem auto;">
+        <h2>Presents</h2>
+        <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+            <div style="background: linear-gradient(135deg, #F6F9F5, #A5C8D4); border: 3px solid #E0FD2C; border-radius: 20px; padding: 3rem 2.5rem; box-shadow: 0 10px 30px rgba(161,39,103,0.2);">
+                <p style="font-size: 1.3rem; color: #035772; line-height: 2;">
+                    We are so excited to celebrate this special day with you — and we cannot fully express how grateful we are that you're going the extra mile, investing your time and effort to be here with us. 💍🥂
+                </p>
+                <p style="font-size: 1.3rem; color: #035772; line-height: 2; margin-top: 1.2rem;">
+                    If you would like to give us a gift, a monetary contribution toward our future together would mean a lot to us 🤍
+                </p>
+                <p style="font-size: 1.3rem; color: #035772; line-height: 2; margin-top: 1.2rem;">
+                    To keep things simple, we kindly ask that our wedding remains cashless — please use the QR code or link below.
+                </p>
+                
+                <!-- WeddingBash QR Code -->
+                <div style="text-align: center; margin: 2rem 0 1rem 0;">
+                    <img src="weddingbash.jpg" alt="WeddingBash QR Code" style="max-width: 300px; width: 80%; border-radius: 15px; box-shadow: 0 8px 25px rgba(161, 39, 103, 0.3);">
+                </div>
+                
+                <p style="margin-top: 0.8rem;">
+                    <a href="https://revolut.me/felirekaweddingbash" target="_blank" style="color: #A12767; font-weight: bold; text-decoration: underline; font-size: 1.2rem;">https://revolut.me/felirekaweddingbash</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="trips" style="background: linear-gradient(135deg, rgba(161,39,103,0.12), rgba(3,87,114,0.12)); border-radius: 30px; box-shadow: 0 10px 40px rgba(161,39,103,0.2); max-width: 1200px; margin: 2rem auto;">
+        <h2>Trips & Tips</h2>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div style="background: linear-gradient(135deg, #F6F9F5, #A5C8D4); border: 3px solid #E0FD2C; border-radius: 20px; padding: 3rem 2.5rem; box-shadow: 0 10px 30px rgba(161,39,103,0.2);">
+
+                <!-- Discover Budapest -->
+                <p style="font-size: 1.5rem; color: #A12767; font-weight: bold; line-height: 2;">
+                    ✨ Discover Budapest
+                </p>
+                
+                <!-- Budapest Image -->
+                <img src="budapest.jpg" alt="Budapest Parliament" style="float: right; max-width: 350px; width: 40%; margin: 1.5rem 0 1.5rem 2rem; border-radius: 20px; border: 3px solid #E0FD2C; box-shadow: 0 8px 25px rgba(161, 39, 103, 0.3); transform: rotate(2deg);">
+                
+                <p style="font-size: 1.3rem; color: #035772; line-height: 2; margin-top: 0.8rem;">
+                    Budapest is truly a wonderful city — vibrant, historic, elegant, and full of character.
+                </p>
+                <p style="font-size: 1.3rem; color: #035772; line-height: 2; margin-top: 0.8rem;">
+                    We recommend spending 3–4 days here, which is more than enough time to explore the highlights, enjoy amazing food, relax in a thermal bath, and soak in the atmosphere without rushing.
+                </p>
+                <p style="font-size: 1.3rem; color: #035772; line-height: 2; margin-top: 0.8rem;">
+                    There are plenty of well-known historic sights to explore.
+                </p>
+                <p style="font-size: 1.3rem; color: #035772; line-height: 2; margin-top: 0.8rem;">
+                    We recommend using the Visit a City app for a tailor-made sightseeing plan. It allows you to organize your trip based on the number of days you're staying and creates a structured daily itinerary around the city highlights.
+                </p>
+
+                <!-- Must-See Highlights -->
+                <p style="font-size: 1.4rem; color: #A12767; font-weight: bold; line-height: 2; margin-top: 2rem;">
+                    🌟 Must-See Highlights
+                </p>
+                <ul style="list-style: none; margin: 1rem 0; padding: 0 1rem;">
+                    <li style="font-size: 1.2rem; color: #035772; margin: 0.6rem 0; line-height: 1.8;">• The Hungarian Parliament – one of Europe's most beautiful parliament buildings</li>
+                    <li style="font-size: 1.2rem; color: #035772; margin: 0.6rem 0; line-height: 1.8;">• Fisherman's Bastion – fairy-tale views over the Danube</li>
+                    <li style="font-size: 1.2rem; color: #035772; margin: 0.6rem 0; line-height: 1.8;">• Buda Castle & the Castle District – charming cobblestone streets and historic atmosphere</li>
+                    <li style="font-size: 1.2rem; color: #035772; margin: 0.6rem 0; line-height: 1.8;">• The Chain Bridge – especially magical at night</li>
+                    <li style="font-size: 1.2rem; color: #035772; margin: 0.6rem 0; line-height: 1.8;">• St. Stephen's Basilica – climb the dome for panoramic views</li>
+                    <li style="font-size: 1.2rem; color: #035772; margin: 0.6rem 0; line-height: 1.8;">• Heroes' Square & City Park, including the stunning Vajdahunyad Castle</li>
+                    <li style="font-size: 1.2rem; color: #035772; margin: 0.6rem 0; line-height: 1.8;">• A sunset walk along the Danube Promenade</li>
+                    <li style="font-size: 1.2rem; color: #035772; margin: 0.6rem 0; line-height: 1.8;">• A ruin bar experience in District VII for something uniquely Budapest</li>
+                </ul>
+
+                <!-- Beyond the Famous Attractions -->
+                <p style="font-size: 1.4rem; color: #A12767; font-weight: bold; line-height: 2; margin-top: 2rem;">
+                    🌙 Beyond the Famous Attractions
+                </p>
+                <ul style="list-style: none; margin: 1rem 0; padding: 0 1rem;">
+                    <li style="font-size: 1.2rem; color: #035772; margin: 0.8rem 0; line-height: 1.8;">• <span style="font-weight: bold;">New York Café</span> It's the perfect place for a coffee and cake break after sightseeing, or even for an elegant brunch.</li>
+                    <li style="font-size: 1.2rem; color: #035772; margin: 0.8rem 0; line-height: 1.8;">• <span style="font-weight: bold;">Danube Cruise</span> A cruise on the Danube is one of the most beautiful ways to experience Budapest — whether with a glass of champagne or a full-course dinner cruise.</li>
+                    <li style="font-size: 1.2rem; color: #035772; margin: 0.8rem 0; line-height: 1.8;">• <span style="font-weight: bold;">Hop-On Hop-Off Bus</span> It might sound commercial, but in Budapest it is genuinely worth it. There is so much history to discover, and the audio guide provides a structured and informative overview of the city.</li>
+                    <li style="font-size: 1.2rem; color: #035772; margin: 0.8rem 0; line-height: 1.8;">• <span style="font-weight: bold;">Gellért Hill & Liberty Statue</span> Make sure that at least one evening you climb up Gellért Hill to the Liberty Statue for one of the most epic views of Budapest and the Danube. During the day, the panorama is breathtaking — but at night, when the city lights reflect on the river, Budapest truly elevates to another level.</li>
+                    <li style="font-size: 1.2rem; color: #035772; margin: 0.8rem 0; line-height: 1.8;">• <span style="font-weight: bold;">Budapest Labyrinth & Hospital in the Rock</span> Two very special historical experiences: the mysterious underground Labyrinth beneath the Buda hills (stretching over 10 km), and the fascinating former emergency hospital and Cold War nuclear bunker.</li>
+                    <li style="font-size: 1.2rem; color: #035772; margin: 0.8rem 0; line-height: 1.8;">• <span style="font-weight: bold;">Sunrise Run Along the Danube</span> If you enjoy running — or if you've partied until sunrise — we highly recommend going out early in the morning for a run along the Danube between the bridges. Climbing toward Gellért Hill near the Elisabeth Bridge (the white bridge) at sunrise is truly unforgettable.</li>
+                    <li style="font-size: 1.2rem; color: #035772; margin: 0.8rem 0; line-height: 1.8;">• <span style="font-weight: bold;">Hungarian Jewish Heritage & 20th Century History</span> Visit the House of Terror museum (dedicated to the victims of the Nazi and Communist regimes), see the moving memorial Shoes on the Danube Bank, and explore the Dohány Street Synagogue — one of the largest in Europe and a central landmark of the historic Jewish Quarter.</li>
+                </ul>
+
+                <!-- Restaurant -->
+                <p style="font-size: 1.4rem; color: #A12767; font-weight: bold; line-height: 2; margin-top: 2rem;">
+                    🌮 Our Favourite Restaurants
+                </p>
+                <ul style="list-style: none; margin: 1rem 0; padding: 0 1rem;">
+                    <li style="font-size: 1.2rem; color: #035772; margin: 0.8rem 0; line-height: 1.8;">• <a href="https://paprikavendeglo.hu" target="_blank" style="color: #A12767; font-weight: bold; text-decoration: underline;">Paprika Vendéglő</a> Very Hungarian and the goulash is epic!! If you visit Heroes' Square, it's just a short 10-minute walk away.</li>
+                    <li style="font-size: 1.2rem; color: #035772; margin: 0.8rem 0; line-height: 1.8;">• <a href="https://vakvarju.com/" target="_blank" style="color: #A12767; font-weight: bold; text-decoration: underline;">VakVarjú</a> A Hungarian restaurant with amazing food. Slightly more upscale than Paprika, but a bit less "cute" and traditional in atmosphere.</li>
+                    <li style="font-size: 1.2rem; color: #035772; margin: 0.8rem 0; line-height: 1.8;">• <a href="https://menzaetterem.hu/" target="_blank" style="color: #A12767; font-weight: bold; text-decoration: underline;">Menza Étterem és Kávéház</a> Stylish local favorite at Liszt Ferenc tér, blending Hungarian ingredients with a modern vibe.</li>
+                    <li style="font-size: 1.2rem; color: #035772; margin: 0.8rem 0; line-height: 1.8;">• <a href="https://hungarikumbisztro.hu/" target="_blank" style="color: #A12767; font-weight: bold; text-decoration: underline;">Hungarikum Bisztró</a> A local favorite with classic Hungarian dishes done right. Great atmosphere and generous portion sizes.</li>
+                    <li style="font-size: 1.2rem; color: #035772; margin: 0.8rem 0; line-height: 1.8;">• <a href="https://parasztkonyha.com/" target="_blank" style="color: #A12767; font-weight: bold; text-decoration: underline;">Parasztkonyha Restaurant</a> Rustic, traditional Hungarian fare with strong reviews and a cozy setting.</li>
+                    <li style="font-size: 1.2rem; color: #035772; margin: 0.8rem 0; line-height: 1.8;">• <a href="https://www.szazevesetterem.hu/" target="_blank" style="color: #A12767; font-weight: bold; text-decoration: underline;">Százéves Étterem</a> One of Budapest's historic restaurants, serving old-school Hungarian comfort food in a charming traditional environment.</li>
+                    <li style="font-size: 1.2rem; color: #035772; margin: 0.8rem 0; line-height: 1.8;">• Gettó Gulyás Very popular Hungarian restaurant known for quality goulash and classic Hungarian plates.</li>
+                    <li style="font-size: 1.2rem; color: #035772; margin: 0.8rem 0; line-height: 1.8;">• <a href="https://sirlancelot.hu/en/medieval-restaurant-sir-lancelot/" target="_blank" style="color: #A12767; font-weight: bold; text-decoration: underline;">Sir Lancelot – Medieval Restaurant</a> A medieval-themed restaurant where back in the days people ate with their hands. They also have evening shows with music and dance — a fun and unique experience.</li>
+                    <li style="font-size: 1.2rem; color: #035772; margin: 0.8rem 0; line-height: 1.8;">• <a href="https://www.iguana.hu/" target="_blank" style="color: #A12767; font-weight: bold; text-decoration: underline;">Iguana – Mexican Restaurant</a> Best fajitas so far!! A lively spot for margaritas and a fun dinner.</li>
+                    <li style="font-size: 1.2rem; color: #035772; margin: 0.8rem 0; line-height: 1.8;">• Oriental Soup House Amazing pho and perfect if you're looking for something lighter.</li>
+                </ul>
+
+                <!-- Accommodation -->
+                <p style="font-size: 1.4rem; color: #A12767; font-weight: bold; line-height: 2; margin-top: 2rem;">
+                    🏨 Accommodation
+                </p>
+                <p style="font-size: 1.3rem; color: #035772; line-height: 2; margin-top: 0.8rem;">
+                    The downtown area is the V. district, but the most central and convenient districts for sightseeing are:
+                </p>
+                <p style="font-size: 1.3rem; color: #A12767; font-weight: bold; margin-top: 0.8rem;">
+                    V., VI., and VII.
+                </p>
+                <p style="font-size: 1.2rem; color: #035772; line-height: 1.8; margin-top: 0.8rem;">
+                    As a rule of thumb: If you book accommodation in any of these districts with strong reviews, you can confidently trust your choice.
+                </p>
+                <p style="font-size: 1.2rem; color: #035772; line-height: 1.8; margin-top: 0.8rem;">
+                    Hotels rated 4★ or 5★ in these areas typically offer excellent comfort and service.
+                </p>
+                <p style="font-size: 1.2rem; color: #035772; line-height: 1.8; margin-top: 0.8rem;">
+                    If you have any specific questions about where to stay, please feel free to reach out to us — we are happy to help 🤍
+                </p>
+
+                <!-- Thermal Baths -->
+                <p style="font-size: 1.4rem; color: #A12767; font-weight: bold; line-height: 2; margin-top: 2rem;">
+                    ♨️ Thermal Baths
+                </p>
+                <p style="font-size: 1.3rem; color: #035772; line-height: 2; margin-top: 0.8rem;">
+                    Budapest — and Hungary in general — is world-famous for its thermal baths. And to highlight: these places are clean and well maintained.
+                </p>
+
+                <!-- Rudas Baths -->
+                <p style="font-size: 1.3rem; color: #A12767; font-weight: bold; margin-top: 1.5rem;">
+                    Rudas Baths
+                </p>
+                <p style="font-size: 1.2rem; color: #035772; line-height: 1.8; margin-top: 0.5rem;">
+                    Our personal favourite. It features a panoramic rooftop pool with breathtaking views of the Danube and the bridges.
+                </p>
+                <ul style="list-style: none; margin: 0.8rem 0; padding: 0 1rem;">
+                    <li style="font-size: 1.1rem; color: #035772; margin: 0.4rem 0;">• Open every day</li>
+                    <li style="font-size: 1.1rem; color: #035772; margin: 0.4rem 0;">• Night bathing on weekends (separate ticket required)</li>
+                    <li style="font-size: 1.1rem; color: #035772; margin: 0.4rem 0;">• The historic Turkish bath section is gender-separated on weekdays and mixed on weekends</li>
+                    <li style="font-size: 1.1rem; color: #035772; margin: 0.4rem 0;">• The wellness pools are mixed every day</li>
+                </ul>
+                <p style="margin-top: 0.8rem;">
+                    <a href="https://www.rudasfurdo.hu/en" target="_blank" style="color: #A12767; font-weight: bold; text-decoration: underline;">https://www.rudasfurdo.hu/en</a>
+                </p>
+
+                <!-- Széchenyi Baths -->
+                <p style="font-size: 1.3rem; color: #A12767; font-weight: bold; margin-top: 1.5rem;">
+                    Széchenyi Thermal Bath
+                </p>
+                <p style="font-size: 1.2rem; color: #035772; line-height: 1.8; margin-top: 0.5rem;">
+                    The most famous and iconic thermal bath in Budapest.
+                </p>
+                <p style="font-size: 1.2rem; color: #035772; line-height: 1.8; margin-top: 0.5rem;">
+                    It is known for its large outdoor pools surrounded by beautiful yellow Neo-Baroque architecture. In winter, the rising steam creates a magical atmosphere. It's lively, social, and offers the classic Budapest bath experience.
+                </p>
+                <p style="margin-top: 0.8rem;">
+                    <a href="https://www.szechenyibath.hu/" target="_blank" style="color: #A12767; font-weight: bold; text-decoration: underline;">https://www.szechenyibath.hu/</a>
+                </p>
+
+                <!-- Discover Esztergom -->
+                <p style="font-size: 1.5rem; color: #A12767; font-weight: bold; line-height: 2; margin-top: 3rem; clear: both;">
+                    ⭐ Discover Esztergom – Réka's Hometown
+                </p>
+                
+                <!-- Esztergom Image -->
+                <img src="esztergom.jpg" alt="Esztergom Basilica" style="float: left; max-width: 350px; width: 40%; margin: 1.5rem 2rem 1.5rem 0; border-radius: 20px; border: 3px solid #E0FD2C; box-shadow: 0 8px 25px rgba(161, 39, 103, 0.3); transform: rotate(-2deg);">
+                
+                <p style="font-size: 1.3rem; color: #035772; line-height: 2; margin-top: 0.8rem;">
+                    If you have extra time during your stay, we highly recommend a day trip to Esztergom, one of Hungary's most historic towns, located about 1–1.5 hours from Budapest.
+                </p>
+                <p style="font-size: 1.3rem; color: #035772; line-height: 2; margin-top: 0.8rem;">
+                    There is also the opportunity to go by Danube cruise, which takes approximately 4–5 hours and offers a scenic journey along the river. Alternatively, there is an easy direct train connection of about one hour.
+                </p>
+                <p style="font-size: 1.3rem; color: #035772; line-height: 2; margin-top: 0.8rem;">
+                    Esztergom was once the capital of Hungary and remains the spiritual center of the country. Its main highlight is the Esztergom Basilica, the largest church in Hungary and one of the largest in Europe.
+                </p>
+                <p style="font-size: 1.3rem; color: #035772; line-height: 2; margin-top: 0.8rem;">
+                    The basilica sits high above the Danube and offers breathtaking panoramic views — you can even see Slovakia just across the river.
+                </p>
+                <p style="font-size: 1.3rem; color: #035772; line-height: 2; margin-top: 0.8rem;">
+                    If you would like to visit the city, please let us know — we would be happy to prepare a separate full-day plan… or even go together 🤍
+                </p>
+                
+                <div style="clear: both;"></div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" style="background: linear-gradient(135deg, rgba(161,39,103,0.12), rgba(3,87,114,0.12)); border-radius: 30px; box-shadow: 0 10px 40px rgba(161,39,103,0.2); max-width: 1200px; margin: 2rem auto;">
+        <h2>Contact</h2>
+        <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+            <div style="background: linear-gradient(135deg, #F6F9F5, #A5C8D4); border: 3px solid #E0FD2C; border-radius: 20px; padding: 3rem 2.5rem; box-shadow: 0 10px 30px rgba(161,39,103,0.2);">
+                <p style="font-size: 1.3rem; color: #035772; line-height: 2;">
+                    If you have any questions, please don't hesitate to reach out to us.
+                </p>
+                <p style="font-size: 1.3rem; color: #035772; line-height: 2; margin-top: 1.2rem;">
+                    We're happy to help! 💬
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trips & Tips Section -->
+    <!-- Footer -->
+    <footer>
+        <p>©2026 by Feli & Réka</p>
+    </footer>
+</body>
+</html>
