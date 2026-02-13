@@ -160,6 +160,20 @@
             box-shadow: 0 10px 40px rgba(161, 39, 103, 0.3);
         }
 
+        @media (max-width: 768px) {
+            .hero {
+                margin: 1rem auto;
+                padding: 3rem 1rem;
+            }
+        }
+
+        @media (max-width: 430px) {
+            .hero {
+                margin: 0.5rem auto;
+                padding: 2rem 0.75rem;
+            }
+        }
+
         .hero h1 {
             font-size: 4rem;
             font-family: 'Brush Script MT', cursive;
@@ -170,6 +184,18 @@
             margin-bottom: 1rem;
             animation: shimmer 3s infinite;
             filter: drop-shadow(2px 2px 4px rgba(161, 39, 103, 0.3));
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 430px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
         }
 
         @keyframes shimmer {
@@ -460,9 +486,156 @@
                 padding: 2rem 1rem;
             }
         }
+
+        /* Password Protection Styles */
+        #password-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #A12767 0%, #035772 50%, #E0FD2C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+
+        #password-screen.hidden {
+            display: none;
+        }
+
+        .password-box {
+            background: linear-gradient(135deg, #F6F9F5, #A5C8D4);
+            border: 3px solid #E0FD2C;
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .password-box h1 {
+            font-size: 2.5rem;
+            font-family: 'Brush Script MT', cursive;
+            background: linear-gradient(135deg, #A12767, #035772);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+        }
+
+        .password-box p {
+            color: #035772;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .password-box input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            border: 2px solid #A12767;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-family: 'Georgia', serif;
+        }
+
+        .password-box input:focus {
+            outline: none;
+            border-color: #035772;
+            box-shadow: 0 0 10px rgba(3, 87, 114, 0.3);
+        }
+
+        .password-box button {
+            background: linear-gradient(135deg, #A12767, #035772);
+            color: #F6F9F5;
+            border: none;
+            padding: 0.75rem 2rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(161, 39, 103, 0.4);
+        }
+
+        .password-box button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(161, 39, 103, 0.6);
+        }
+
+        .password-error {
+            color: #A12767;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .password-error.show {
+            display: block;
+        }
+
+        #main-content {
+            display: none;
+        }
+
+        #main-content.unlocked {
+            display: block;
+        }
     </style>
+    <script>
+        function checkPassword() {
+            const password = document.getElementById('password-input').value;
+            const correctPassword = 'FeliRekaMatri2026';
+            
+            if (password === correctPassword) {
+                document.getElementById('password-screen').classList.add('hidden');
+                document.getElementById('main-content').classList.add('unlocked');
+                sessionStorage.setItem('wedding-authenticated', 'true');
+            } else {
+                document.getElementById('password-error').classList.add('show');
+                document.getElementById('password-input').value = '';
+                document.getElementById('password-input').focus();
+            }
+        }
+
+        // Allow Enter key to submit
+        document.addEventListener('DOMContentLoaded', function() {
+            const input = document.getElementById('password-input');
+            if (input) {
+                input.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        checkPassword();
+                    }
+                });
+                
+                // Check if already authenticated in this session
+                if (sessionStorage.getItem('wedding-authenticated') === 'true') {
+                    document.getElementById('password-screen').classList.add('hidden');
+                    document.getElementById('main-content').classList.add('unlocked');
+                }
+            }
+        });
+    </script>
 </head>
 <body>
+    <!-- Password Protection Screen -->
+    <div id="password-screen">
+        <div class="password-box">
+            <h1>Feli & Réka</h1>
+            <p>Please enter the password to view our wedding invitation</p>
+            <input type="password" id="password-input" placeholder="Enter password" autocomplete="off">
+            <button onclick="checkPassword()">Enter</button>
+            <p class="password-error" id="password-error">Incorrect password. Please try again.</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content">
+    
     <!-- Navigation -->
     <nav>
         <ul>
@@ -1104,5 +1277,7 @@
     <footer>
         <p>©2026 by Feli & Réka</p>
     </footer>
+
+    </div><!-- End Main Content -->
 </body>
 </html>
